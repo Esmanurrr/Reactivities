@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Reactivities.Domain;
+using Reactivities.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

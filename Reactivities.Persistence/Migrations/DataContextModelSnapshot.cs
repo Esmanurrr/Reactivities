@@ -22,7 +22,7 @@ namespace Reactivities.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Reactivities.Domain.Activity", b =>
+            modelBuilder.Entity("Reactivities.Domain.Entities.Activity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
