@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reactivities.Domain.Entities
 {
-    public class Activity
+    public class Activity 
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -14,7 +14,6 @@ namespace Reactivities.Domain.Entities
         public string Description { get; set; }
         public string City { get; set; }
         public string Venue { get; set; }
-        public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
+        public string Category { get; set; }
     }
 }
