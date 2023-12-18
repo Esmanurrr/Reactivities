@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.API", "Reactivities.API\Reactivities.API.csproj", "{819518BF-BCAB-443C-AB06-8E8667F7AF61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactivities.API", "Reactivities.API\Reactivities.API.csproj", "{819518BF-BCAB-443C-AB06-8E8667F7AF61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.Application", "Reactivities.Application\Reactivities.Application.csproj", "{8C46F487-B45A-439F-801C-9F86818C2B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactivities.Application", "Reactivities.Application\Reactivities.Application.csproj", "{8C46F487-B45A-439F-801C-9F86818C2B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.Domain", "Reactivities.Domain\Reactivities.Domain.csproj", "{72242B90-680A-4E68-B794-3E212A0037DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactivities.Domain", "Reactivities.Domain\Reactivities.Domain.csproj", "{72242B90-680A-4E68-B794-3E212A0037DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.Persistence", "Reactivities.Persistence\Reactivities.Persistence.csproj", "{D4BDA40A-FDE7-4551-A4C7-602FFCE8558C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactivities.Persistence", "Reactivities.Persistence\Reactivities.Persistence.csproj", "{D4BDA40A-FDE7-4551-A4C7-602FFCE8558C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactivities.MVC", "Reactivities.MVC\Reactivities.MVC.csproj", "{F273547F-60DE-4E90-B3ED-154AC9989F54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D4BDA40A-FDE7-4551-A4C7-602FFCE8558C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4BDA40A-FDE7-4551-A4C7-602FFCE8558C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4BDA40A-FDE7-4551-A4C7-602FFCE8558C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F273547F-60DE-4E90-B3ED-154AC9989F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F273547F-60DE-4E90-B3ED-154AC9989F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F273547F-60DE-4E90-B3ED-154AC9989F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F273547F-60DE-4E90-B3ED-154AC9989F54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
