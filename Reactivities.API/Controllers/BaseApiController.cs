@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Reactivities.API.Controllers
@@ -7,5 +8,10 @@ namespace Reactivities.API.Controllers
     [ApiController]
     public class BaseApiController : ControllerBase
     {
+        // Lazy Initialization
+        private IMediator _mediator;
+
+        protected IMediator Mediator => _mediator ??= 
+            HttpContext.RequestServices.GetService<IMediator>();  
     }
 }
