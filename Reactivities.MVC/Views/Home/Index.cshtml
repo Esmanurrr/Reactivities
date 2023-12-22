@@ -1,8 +1,14 @@
-﻿@{
+﻿@model List<Reactivities.MVC.ViewModels.ActivityViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<container>
+    <ul class="list-group">
+        @foreach (var i in Model)
+        {
+            <li class="list-group-item" id="@i.Id">@i.Title</li>
+        }
+    </ul>
+</container>
+
