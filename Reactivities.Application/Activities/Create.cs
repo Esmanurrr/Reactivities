@@ -29,7 +29,15 @@ namespace Reactivities.Application.Activities
             {
                 _context.Activities.Add(request.Activity);
 
-                await _context.SaveChangesAsync();
+                try
+                {
+                    await _context.SaveChangesAsync();
+
+                }
+                catch(Exception ex) 
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
         }
     }
