@@ -25,7 +25,7 @@ namespace Reactivities.API.Extensions
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:7006/");
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:3000");
                 });
             });
 
