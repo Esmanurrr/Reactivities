@@ -1,52 +1,40 @@
-﻿@model List<Reactivities.MVC.ViewModels.ActivityViewModel>
+﻿@model List<ActivityViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<container style="position: relative;">
-    <ul class="list-group">
-        @foreach (var i in Model)
-        {
-            <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1" itemid="@i.Id">@i.Title</h5>
-                </div>
-                <p class="text-body-secondary">@i.Date</p>
-                <p class="mb-1">@i.Description</p>
-                <small class="text-body-secondary">@i.City, @i.Venue</small>
-                <div>
-                    <label id="categoryLabel">@i.Category</label>
-                    <button type="button" style="position: absolute; bottom: 10px; right: 10px;" class="btn btn-primary">View</button>
-                </div>
-                
-            </a>
-        }
-    </ul>
-</container>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <div style="position: relative;">
+                <ul class="list-group">
+                    @foreach (var i in Model)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action" >
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1" name="@i.Id">@Html.DisplayFor(modelItem => i.Title)</h5>
+                            </div>
+                            <p class="text-body-secondary">@Html.DisplayFor(modelItem => i.Date)</p>
+                            <p class="mb-1">@Html.DisplayFor(modelItem => i.Description)</p>
+                            <small class="text-body-secondary">@Html.DisplayFor(modelItem => i.City), @Html.DisplayFor(modelItem => i.Venue)</small>
+                            <div>
+                                <label id="categoryLabel">@Html.DisplayFor(modelItem => i.Category)</label>
+                                <input type="submit" value="View" onclick="redirectToDetails('@i.Id')" style="position: absolute; bottom: 10px; right: 10px;" class="btn btn-primary" />
+                                @* <input value="Submit" type="submit" class="btn btn-primary" /> *@
+                            </div>
+                        </a>
+                    }
+                </ul>
+            </div>
+        </div>
+         
+    </div>
+</div>
 
-@* <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small>3 days ago</small>
-        </div>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <small>And some small print.</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-body-secondary">3 days ago</small>
-        </div>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <small class="text-body-secondary">And some muted small print.</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-body-secondary">3 days ago</small>
-        </div>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <small class="text-body-secondary">And some muted small print.</small>
-    </a>
-</div> *@
+<script>
+    function redirectToDetails(id) {
+        // JavaScript kullanarak yönlendirme yap
+        window.location.href = '/Home/Details/' + id; // ControllerName'i kendi kontrolcü adınızla değiştirin
+    }
+</script>
+

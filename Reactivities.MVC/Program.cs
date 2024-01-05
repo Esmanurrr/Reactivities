@@ -5,8 +5,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient("ApiClient", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5264/");
+    client.BaseAddress = new Uri("http://localhost:5000/api/");
 });
+
+
 
 var app = builder.Build();
 
@@ -22,6 +24,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

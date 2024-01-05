@@ -1,0 +1,61 @@
+﻿@model Reactivities.MVC.Models.ActivityViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ActivityViewModel</h4>
+<hr />
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h2 class="card-title">Create New Activity</h2>
+
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" type="text" class="form-control" id="title" name="Title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" id="description" name="Description" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Category" class="form-label">Category</label>
+                    <input asp-for="Category" type="text" class="form-control" id="category" name="Category" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Date" class="form-label">Date</label>
+                    <input asp-for="Date" type="date" class="form-control" id="date" name="Date" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="City" class="form-label">City</label>
+                    <input asp-for="City" type="text" class="form-control" id="city" name="City" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Venue" class="form-label">Venue</label>
+                    <input asp-for="Venue"  type="text" class="form-control" id="venue" name="Venue" required>
+                </div>
+
+                <input value="Submit" type="submit" class="btn btn-primary"/>
+
+                <button type="button" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

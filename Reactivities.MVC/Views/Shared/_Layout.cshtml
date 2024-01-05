@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="/Images/logo.png" alt="Logo" style="margin-right:10px;"/>
+                <img src="../Images/logo.png" alt="Logo" style="margin-right:10px;"/>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Reactivities.MVC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -21,10 +21,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Activity" asp-action="Index">Activities</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Activities" asp-action="Index">Activities</a>
                         </li>
-                        <button type="button" class="btn btn-success">Create Activity</button>
-                        
+                        <a type="button" asp-controller="Home" asp-action="Create" class="btn btn-success">Create Activity</a>
                     </ul>
                 </div>
             </div>

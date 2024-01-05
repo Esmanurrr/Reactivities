@@ -1,4 +1,4 @@
-﻿namespace Reactivities.MVC.ViewModels
+﻿namespace Reactivities.MVC.Models
 {
     public class ActivityViewModel
     {
