@@ -67,7 +67,11 @@ function App() {
   }
 
   function handleDeleteActivity(id:string){
-    setActivities([...activities.filter(x=>x.id !== id)])//set new activity list except the deleted one.
+    setSubmitting(true);
+    agent.Activities.delete(id).then(()=>{
+      setActivities([...activities.filter(x=>x.id !== id)]);//set new activity list except the deleted one.
+      setSubmitting(false);
+    })
   }
 
   if(loading) return <LoadingComponent content='Loading app' />
