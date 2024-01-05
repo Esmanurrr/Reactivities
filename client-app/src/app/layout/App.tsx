@@ -39,9 +39,13 @@ function App() {
   function handleCreateOrEditActivity(activity: Activity){
     activity.id 
     ? setActivities([...activities.filter(x=>x.id !== activity.id), activity]) 
-    : setActivities([...activities, {...activity, id:uuid()}]);
+    : setActivities([...activities, {...activity, id:uuid()}]);// random id with uuid()
     setEditMode(false);
     setSelectedActivity(activity);
+  }
+
+  function handleDeleteActivity(id:string){
+    setActivities([...activities.filter(x=>x.id !== id)])//set new activity list except the deleted one.
   }
 
   return (
@@ -58,6 +62,7 @@ function App() {
         openForm={handeFormOpen}
         closeForm={handleFormClose}
         createOrEdit = {handleCreateOrEditActivity}
+        deleteActivity = {handleDeleteActivity}
         />
       </Container>
     </>
