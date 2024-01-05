@@ -1,12 +1,14 @@
 import React from 'react';
 import { Activity } from '../../../app/layout/models/activity';
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
+import { act } from 'react-dom/test-utils';
 
 interface Props{
     activities: Activity[];
+    selectActivity: (id:string) => void;
 }
 
-export default function ActivityList({activities}: Props){
+export default function ActivityList({activities, selectActivity}: Props){
     return(
         <Segment>
             <Item.Group divided>
@@ -20,7 +22,7 @@ export default function ActivityList({activities}: Props){
                                 <div>{activity.city}, {activity.venue}</div>
                             </Item.Description>
                             <Item.Extra>
-                                <Button floated='right' content='View' color='blue'/>
+                                <Button onClick={() => selectActivity(activity.id)} floated='right' content='View' color='blue'/>
                                 <Label basic content={activity.category}/>
                             </Item.Extra>
                         </Item.Content>
