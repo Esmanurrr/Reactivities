@@ -12,7 +12,7 @@ using Reactivities.Persistence;
 namespace Reactivities.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231217063241_InitialCreate")]
+    [Migration("20240108131627_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
