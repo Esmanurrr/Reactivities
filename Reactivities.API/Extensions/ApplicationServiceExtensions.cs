@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+using Reactivities.Application.Activities;
 using Reactivities.Application.Core;
 using Reactivities.Persistence;
 
@@ -22,6 +25,8 @@ namespace Reactivities.API.Extensions
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Reactivities.Application.Activities.List.Handler).Assembly));
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssemblyContaining<Create>();
 
             return services;
         }

@@ -1,3 +1,5 @@
+
+
 namespace Reactivities.Domain
 {
     public class Activity
