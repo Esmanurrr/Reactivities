@@ -29,17 +29,14 @@ namespace Reactivities.API.Controllers
         public async Task<IActionResult> EditActivities(Guid id, Activity activity)
         {
             activity.Id = id;
-            await Mediator.Send(new Edit.Command { Activitiy = activity });
-            
-            return Ok();
+            return HandleResult(await Mediator.Send(new Edit.Command { Activitiy = activity }));
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> DeleteActivity(Guid id)
         {
-            await Mediator.Send(new Delete.Command { Id = id });
+            return HandleResult(await Mediator.Send(new Delete.Command { Id = id }));
 
-            return Ok();
         }
     }
 }
