@@ -8,9 +8,9 @@ namespace Reactivities.API.Controllers
     public class ActivitiesController : BaseApiController
     {
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> GetActivities()
+        public async Task<IActionResult> GetActivities()
         {
-            return await Mediator.Send(new List.Query());
+            return HandleResult(await Mediator.Send(new List.Query()));
         }
 
         [HttpGet("{id}")]
@@ -21,10 +21,8 @@ namespace Reactivities.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateActivities(Activity activity)
-        {
-            await Mediator.Send(new Create.Command { Activitiy = activity });
-            
-            return Ok();
+        {    
+            return HandleResult(await Mediator.Send(new Create.Command { Activitiy = activity }));
         }
 
         [HttpPut("{id}")]
