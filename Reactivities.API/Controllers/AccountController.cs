@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Reactivities.API.DTOs;
 using Reactivities.API.Services;
 using Reactivities.Domain;
+using System.Security.Claims;
 
 namespace Reactivities.API.Controllers
 {
-    [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
@@ -23,6 +23,7 @@ namespace Reactivities.API.Controllers
             _tokenService = tokenService;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {//to return generic type we use ActionResult
@@ -34,17 +35,12 @@ namespace Reactivities.API.Controllers
 
             if (result)
             {
-                return new UserDto
-                {
-                    Displayame = user.DisplayName,
-                    Image = null,
-                    Token = _tokenService.CreateToken(user),
-                    Username = user.UserName
-                };
+                return CreateUserObject(user);
             }
             return Unauthorized();
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registorDto)
         {
@@ -69,17 +65,32 @@ namespace Reactivities.API.Controllers
 
             if (result.Succeeded)
             {
-                return new UserDto
-                {
-                    Displayame = user.DisplayName,
-                    Image = null,
-                    Token = _tokenService.CreateToken(user),
-                    Username = user.UserName
-                };
+                return CreateUserObject(user);
             }
 
             return BadRequest(result.Errors);
 
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        {
+            var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+
+            return CreateUserObject(user);
+        }
+
+
+        private UserDto CreateUserObject(AppUser user)
+        {
+            return new UserDto
+            {
+                Displayame = user.DisplayName,
+                Image = null,
+                Token = _tokenService.CreateToken(user),
+                Username = user.UserName
+            };
         }
     }
 }
