@@ -1,4 +1,5 @@
-﻿using Reactivities.Domain;
+﻿using Reactivities.API.Services;
+using Reactivities.Domain;
 using Reactivities.Persistence;
 
 namespace Reactivities.API.Extensions
@@ -14,6 +15,7 @@ namespace Reactivities.API.Extensions
             .AddEntityFrameworkStores<DataContext>();
 
             services.AddAuthentication();
+            services.AddScoped<TokenService>();
 
             return services;
         }
