@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Reactivities.API.Extensions;
 using Reactivities.API.Middleware;
+using Reactivities.Domain;
 using Reactivities.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,8 +40,9 @@ var services = scope.ServiceProvider;
 try
 {
     var context = services.GetRequiredService<DataContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await context.Database.MigrateAsync();
-    await Seed.SeedData(context);
+    await Seed.SeedData(context, userManager);
 }
 catch (Exception ex)
 {
