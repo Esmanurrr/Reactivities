@@ -6,6 +6,7 @@ using Reactivities.Domain;
 
 namespace Reactivities.API.Controllers
 {
+    [AllowAnonymous]
     public class ActivitiesController : BaseApiController
     {
         [HttpGet]
