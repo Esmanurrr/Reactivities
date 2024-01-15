@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Reactivities.Application.Activities;
 using Reactivities.Domain;
@@ -13,6 +14,7 @@ namespace Reactivities.API.Controllers
             return HandleResult(await Mediator.Send(new List.Query()));
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
         { 
