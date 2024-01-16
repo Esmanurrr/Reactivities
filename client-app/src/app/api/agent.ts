@@ -15,6 +15,12 @@ axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 
+axios.interceptors.request.use(config => {
+    const token = store.commonStore.token;
+    if(token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+})
+
 axios.interceptors.response.use(async response => {
 
     await sleep(1000);
