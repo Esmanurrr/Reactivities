@@ -3,6 +3,8 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Reactivities.Application.Activities;
 using Reactivities.Application.Core;
+using Reactivities.Application.Interfaces;
+using Reactivities.Infrastructure.Security;
 using Reactivities.Persistence;
 
 namespace Reactivities.API.Extensions
@@ -23,10 +25,12 @@ namespace Reactivities.API.Extensions
                 });
             });
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Reactivities.Application.Activities.List.Handler).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssemblyContaining<Create>();
+            services.AddHttpContextAccessor();
+            services.AddScoped<IUserAccessor, UserAccessor>();
 
             return services;
         }
