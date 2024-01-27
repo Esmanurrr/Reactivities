@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Reactivities.Application.Activities;
 using Reactivities.Domain;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Reactivities.Application.Core
         public MappingProfiles()
         {
             CreateMap<Activity, Activity>();
+            CreateMap<Activity, ActivityDto>();
         }
     }
 }
