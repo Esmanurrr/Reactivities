@@ -88,7 +88,7 @@ namespace Reactivities.API.Controllers
         {
             return new UserDto
             {
-                Displayame = user.DisplayName,
+                DisplayName = user.DisplayName,
                 Image = null,
                 Token = _tokenService.CreateToken(user),
                 Username = user.UserName
