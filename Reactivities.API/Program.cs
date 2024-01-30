@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Persistence;
 using Reactivities.API.Extensions;
 using Reactivities.API.Middleware;
 using Reactivities.Domain;

@@ -12,8 +12,8 @@ using Reactivities.Persistence;
 namespace Reactivities.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240128210022_AddCancelledProperty")]
-    partial class AddCancelledProperty
+    [Migration("20240130130250_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Reactivities.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class ActivityAttendee : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +22,8 @@ namespace Reactivities.Persistence.Migrations
                     Description = table.Column<string>(type: "text", nullable: true),
                     Category = table.Column<string>(type: "text", nullable: true),
                     City = table.Column<string>(type: "text", nullable: true),
-                    Venue = table.Column<string>(type: "text", nullable: true)
+                    Venue = table.Column<string>(type: "text", nullable: true),
+                    IsCancelled = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
