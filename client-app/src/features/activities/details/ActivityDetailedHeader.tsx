@@ -53,7 +53,7 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                         Manage Event
                     </Button>
                 ) : activity.isGoing ? (
-                    <Button loading={loading} onClick={updateAttendance} >Cancel attendance</Button>
+                    <Button loading={loading} onClick={updateAttendance}>Cancel attendance</Button>
                 ) : (
                     <Button loading={loading} onClick={updateAttendance} color='teal'>Join Activity</Button>
                 )}
