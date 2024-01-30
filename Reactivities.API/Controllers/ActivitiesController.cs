@@ -16,13 +16,13 @@ namespace Reactivities.API.Controllers
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
-        { 
-           return HandleResult(await Mediator.Send(new Details.Query { Id = id }));
+        {
+            return HandleResult(await Mediator.Send(new Details.Query { Id = id }));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateActivities(Activity activity)
-        {    
+        {
             return HandleResult(await Mediator.Send(new Create.Command { Activitiy = activity }));
         }
 
