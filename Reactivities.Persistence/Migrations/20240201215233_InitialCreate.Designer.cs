@@ -12,7 +12,7 @@ using Reactivities.Persistence;
 namespace Reactivities.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240130130250_InitialCreate")]
+    [Migration("20240201215233_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -277,6 +277,27 @@ namespace Reactivities.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Reactivities.Domain.Photo", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -347,6 +368,13 @@ namespace Reactivities.Persistence.Migrations
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("Reactivities.Domain.Photo", b =>
+                {
+                    b.HasOne("Reactivities.Domain.AppUser", null)
+                        .WithMany("Photos")
+                        .HasForeignKey("AppUserId");
+                });
+
             modelBuilder.Entity("Reactivities.Domain.Activity", b =>
                 {
                     b.Navigation("Attendees");
@@ -355,6 +383,8 @@ namespace Reactivities.Persistence.Migrations
             modelBuilder.Entity("Reactivities.Domain.AppUser", b =>
                 {
                     b.Navigation("Activities");
+
+                    b.Navigation("Photos");
                 });
 #pragma warning restore 612, 618
         }

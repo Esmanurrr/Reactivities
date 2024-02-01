@@ -282,8 +282,8 @@ namespace Reactivities.Persistence.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("text");
 
-                    b.Property<string>("IsMain")
-                        .HasColumnType("text");
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Url")
                         .HasColumnType("text");
