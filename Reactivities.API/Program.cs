@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Reactivities.API.Extensions;
 using Reactivities.API.Middleware;
+using Reactivities.API.SignalR;
 using Reactivities.Domain;
 using Reactivities.Persistence;
 
@@ -42,6 +43,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<ChatHub>("/chat");
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
