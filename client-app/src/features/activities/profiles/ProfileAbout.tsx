@@ -15,7 +15,7 @@ export default observer(function ProfileAbout(){
                 <Grid.Column width='16'>
                     <Header floated='left' icon='user' content={`About ${profile?.displayName}`} />
                     {isCurrentUser && (
-                        <Button floated='right' basic conten={editMode ? 'Cancel' : 'Edit Profile'} onClick={() => setEditMode(!editMode)} />
+                        <Button floated='right' basic content={editMode ? 'Cancel' : 'Edit Profile'} onClick={() => setEditMode(!editMode)} />
                     )}
                 </Grid.Column>
                 <Grid.Column width={16}>
