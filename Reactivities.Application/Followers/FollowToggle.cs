@@ -26,8 +26,8 @@ namespace Reactivities.Application.Followers
 
             public Handler(DataContext context, IUserAccessor userAccessor)
             {
-                context = context;
-                userAccessor = userAccessor;
+                _context = context;
+                _userAccessor = userAccessor;
             }
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
