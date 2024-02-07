@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Reactivities.Application.Core;
+using Reactivities.Application.Interfaces;
 using Reactivities.Application.Profiles;
 using Reactivities.Persistence;
 using System;
@@ -25,11 +26,13 @@ namespace Reactivities.Application.Followers
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
+            private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context, IMapper mapper, IUserAccessor userAccessor)
             {
                 _context = context;
                 _mapper = mapper;
+                _userAccessor = userAccessor;
             }
 
             public async Task<Result<List<Profiles.Profile>>> Handle(Query request, CancellationToken cancellationToken)
@@ -41,7 +44,7 @@ namespace Reactivities.Application.Followers
                     case "followers":
                         profiles = await _context.UserFollowings.Where(x => x.Target.UserName == request.Username)//takipçi
                             .Select(u => u.Observer)//beni takip edenler
-                            .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider)
+                            .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider, new {currentUsername = _userAccessor.GetUsername()})
                             .ToListAsync();
                         break;
                     case "following":
