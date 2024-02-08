@@ -10,7 +10,7 @@ import LoadingComponent from "../../../app/layout/LoadingComponent";
 export default observer(function ProfilePage() {
     const { username } = useParams<{ username: string }>();//use username parameter in url
     const { profileStore } = useStore();
-    const { loadingProfile, loadProfile, profile } = profileStore;
+    const { loadingProfile, loadProfile, profile} = profileStore;
 
     useEffect(() => {
         if (username) loadProfile(username);
